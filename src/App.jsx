@@ -59,7 +59,7 @@ function App() {
       setIsSending(true);
       await axios
         .get(
-          `https://kurivn-only-api.onrender.com/v1?why=why:${why} XuanBachDotDev&value=${value}&type=${type}&id=${ID}`
+          `https://kurivn-only-api.onrender.com/v1?why=${why}&value=${value}&type=${type}&id=${ID}`
         )
         .then((response) => {
           toast.update(id, {
