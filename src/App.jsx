@@ -10,24 +10,41 @@ import {
   MenuItem,
   OutlinedInput,
   Button,
+  Modal,
 } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  borderRadius: 3,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 function App() {
   const [type, setType] = useState();
   const [why, setWhy] = useState();
   const [value, setValue] = useState();
   const [ID, setID] = useState();
   const [isSending, setIsSending] = useState();
+  const [open, setOpen] = useState(true);
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/\D/g, "");
 
     setValue(result);
   };
-
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const handleSubmit = async () => {
     if (!why) {
       toast.error("Please type why!");
@@ -79,6 +96,32 @@ function App() {
         pauseOnHover
         theme="dark"
       />
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Message
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Open Beta đã đóng. Nếu muốn mua vui lòng liên hệ{" "}
+            <Link
+              color="inherit"
+              href="https://facebook.com/xuanbachdotdev"
+              target="_blank"
+            >
+              Facebook
+            </Link>
+            <br />
+            Mua đứt source code 350k
+            <br /> Thuê theo tuần 70k
+          </Typography>
+        </Box>
+      </Modal>
       <Box
         sx={{
           display: "flex",
@@ -185,7 +228,13 @@ function App() {
             <Typography variant="body1">ElDorado Mailbox Send</Typography>
             <Typography variant="body2" color="text.secondary">
               {"Copyright © "}
-              <Link color="inherit">XuanBachDotDev</Link>{" "}
+              <Link
+                color="inherit"
+                href="https://facebook.com/xuanbachdotdev"
+                target="_blank"
+              >
+                XuanBachDotDev
+              </Link>
               {new Date().getFullYear()}
             </Typography>
           </Container>
