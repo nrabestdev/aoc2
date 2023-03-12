@@ -36,7 +36,7 @@ function App() {
   const [value, setValue] = useState();
   const [ID, setID] = useState();
   const [isSending, setIsSending] = useState();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/\D/g, "");
@@ -85,7 +85,7 @@ function App() {
   return (
     <div className="container">
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -145,6 +145,7 @@ function App() {
                   setValue("");
                 }}
               >
+                <MenuItem value="CLOUD">Cloud Piece</MenuItem>
                 <MenuItem value="RUBY">Ruby</MenuItem>
                 <MenuItem value="GOLD">Gold</MenuItem>
                 <MenuItem value="BP">BP</MenuItem>
