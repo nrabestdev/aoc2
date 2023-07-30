@@ -47,15 +47,15 @@ function App() {
   const handleClose = () => setOpen(false);
   const handleSubmit = async () => {
     if (!why) {
-      toast.error("Please type why!");
+      toast.error("Vui Lòng nhâpj lý do gửi!");
     } else if (!type) {
-      toast.error("Please type type!");
+      toast.error("Vui lòng chọn loại!");
     } else if (!value) {
-      toast.error("Please type value!");
+      toast.error("Vui Lòng nhập số lượng!");
     } else if (!ID) {
-      toast.error("Please type In-game ID!");
+      toast.error("Vui Lòng Nhập  ID gửi!");
     } else {
-      const id = toast.loading("Sending...");
+      const id = toast.loading("Đang Gửi...");
       setIsSending(true);
       await axios
         .get(
@@ -63,7 +63,7 @@ function App() {
         )
         .then((response) => {
           toast.update(id, {
-            render: "Send Success!",
+            render: "Đang Thử Nghiệm",
             type: "success",
             isLoading: false,
             autoClose: 2000,
@@ -111,7 +111,7 @@ function App() {
             Open Beta đã đóng. Nếu muốn mua vui lòng liên hệ{" "}
             <Link
               color="inherit"
-              href="https://facebook.com/xuanbachdotdev"
+              href="https://www.facebook.com/profile.php?id=100076142047250"
               target="_blank"
             >
               Facebook
@@ -132,7 +132,7 @@ function App() {
         <CssBaseline />
         <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
           <Typography variant="h3" component="h1" gutterBottom>
-            ElDorado Mailbox Send
+            HỘP THƯ GỬI TÀI NGUYÊN AOV BY ATNoodDev
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom></Typography>
           <Typography variant="body1">
@@ -145,39 +145,39 @@ function App() {
                   setValue("");
                 }}
               >
-                <MenuItem value="CLOUD">Cloud Piece</MenuItem>
+                <MenuItem value="QUÂN HUY">Quân huy</MenuItem>
                 <MenuItem value="RUBY">Ruby</MenuItem>
                 <MenuItem value="GOLD">Gold</MenuItem>
-                <MenuItem value="BP">BP</MenuItem>
-                <MenuItem value="CHAR">Charactor</MenuItem>
-                <MenuItem value="ITEM">Item</MenuItem>
+                <MenuItem value="THẺ ĐỔI TÊN">Thẻ đổi tên </MenuItem>
+                <MenuItem value="TƯỚNG">Mã Tướng</MenuItem>
+                <MenuItem value="SKIN">Skin</MenuItem>
               </Select>
             </FormControl>
             <FormControl sx={{ mt: 2 }} fullWidth>
               <InputLabel>Why?</InputLabel>
               <OutlinedInput
-                label="Why?"
+                label="Lý do gửi "
                 value={why}
                 onChange={(e) => setWhy(e.target.value)}
               />
             </FormControl>
-            {type === "CHAR" ? (
+            {type === "Tướng" ? (
               <>
                 <FormControl fullWidth sx={{ mt: 2 }}>
                   <InputLabel>Charactor Code</InputLabel>
                   <OutlinedInput
-                    label="Charactor Code"
+                    label="Tướng Code"
                     value={value}
                     onChange={handleChange}
                   />
                 </FormControl>
               </>
-            ) : type === "ITEM" ? (
+            ) : type === "Skin" ? (
               <>
                 <FormControl fullWidth sx={{ mt: 2 }}>
-                  <InputLabel>Item Code</InputLabel>
+                  <InputLabel>Skin Code</InputLabel>
                   <OutlinedInput
-                    label="Item Code"
+                    label="Skin Code"
                     value={value}
                     onChange={handleChange}
                   />
@@ -194,9 +194,9 @@ function App() {
               </FormControl>
             )}
             <FormControl sx={{ mt: 2 }} fullWidth>
-              <InputLabel>In-game ID</InputLabel>
+              <InputLabel>ID gửi</InputLabel>
               <OutlinedInput
-                label="In-game ID"
+                label="ID Gửi"
                 value={ID}
                 onChange={(e) => setID(e.target.value)}
               />
@@ -208,7 +208,7 @@ function App() {
                 variant="contained"
                 onClick={() => handleSubmit()}
               >
-                Send
+                Chưa cập nhật
               </Button>
             </Box>
           </Typography>
@@ -226,15 +226,15 @@ function App() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography variant="body1">ElDorado Mailbox Send</Typography>
+            <Typography variant="body1">Tính Năng Đang Thử Nghiệm</Typography>
             <Typography variant="body2" color="text.secondary">
               {"Copyright © "}
               <Link
                 color="inherit"
-                href="https://facebook.com/xuanbachdotdev"
+                href="https://www.facebook.com/profile.php?id=100076142047250"
                 target="_blank"
               >
-                XuanBachDotDev
+                ATNoodDev
               </Link>
               {new Date().getFullYear()}
             </Typography>
